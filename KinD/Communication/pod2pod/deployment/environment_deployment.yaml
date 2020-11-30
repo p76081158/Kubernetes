@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetes-bootcamp-deployment
+  namespace: bootcamp
+  labels:
+    app: bootcamp1
+spec:
+  selector:
+    matchLabels:
+      app: bootcamp1
+  template:
+    metadata:
+      labels:
+        app: bootcamp1
+    spec:
+      containers:
+      - name: bootcamp1
+        image: gcr.io/google-samples/kubernetes-bootcamp:v1
+        imagePullPolicy: IfNotPresent
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetes-bootcamp-deployment
+  namespace: bootcamp
+  labels:
+    app: bootcamp2
+spec:
+  selector:
+    matchLabels:
+      app: bootcamp2
+  template:
+    metadata:
+      labels:
+        app: bootcamp2
+    spec:
+      containers:
+      - name: bootcamp2
+        image: gcr.io/google-samples/kubernetes-bootcamp:v1
+        imagePullPolicy: IfNotPresent
